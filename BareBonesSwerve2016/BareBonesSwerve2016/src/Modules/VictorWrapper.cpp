@@ -15,12 +15,12 @@ VictorWrapper::VictorWrapper(uint32_t channel, bool invertSpeed, float scaleSpee
 {
 }
 
-void VictorWrapper::Set(float speed, uint8_t syncGroup) {
+void VictorWrapper::Set(float speed, uint8_t syncGroup ) {
 	speed = _ScaleSpeed(speed);
 	speed = _LimitSpeed(speed);
 	speed = _IsCurrentLimitExceeded() ? 0 : speed;
 	speed = IsInverted() ? -speed : speed;
-	Victor::Set(speed, syncGroup);
+	Victor:: Set(speed);
 }
 
 void VictorWrapper::InvertSpeed(bool invertSpeed) {

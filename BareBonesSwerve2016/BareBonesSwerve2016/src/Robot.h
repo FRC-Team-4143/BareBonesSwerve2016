@@ -4,6 +4,7 @@
 #include <WPILib.h>
 #include <Commands/Command.h>
 #include <LiveWindow/LiveWindow.h>
+#include <iostream>
 #include "Modules/DoubleAutoMonitor.h"
 #include "Subsystems/DriveTrain.h"
 #include "OI.h"
@@ -12,7 +13,7 @@ class Robot : public IterativeRobot {
 public:
 	Command *autonomousCommand;
 	LiveWindow *lw;
-	SendableChooser* autoChooser;
+	//SendableChooser* autoChooser;
 	static OI *oi;
 	static DriveTrain* driveTrain;
 

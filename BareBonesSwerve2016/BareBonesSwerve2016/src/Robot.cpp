@@ -19,17 +19,18 @@ void Robot::RobotInit() {
 
 	RobotMap::Init();
 
-	autoChooser = new SendableChooser();
+	//autoChooser = new SendableChooser();
 
-	SmartDashboard::PutData("AutonomousChooser", autoChooser);
+	//SmartDashboard::PutData("AutonomousChooser", static_cast<Sendable*>(autoChooser));
 
 	// List all preferences
 	auto prefs = Preferences::GetInstance();
-	auto keys = prefs->GetKeys();
+	std::vector<std::string> keys = prefs->GetKeys();
 	std::cout << "[DEBUG] Keys:" << std::endl;
 	for (auto iter = keys.begin(); iter != keys.end(); iter++) {
 		auto value = prefs->GetString((*iter).c_str());
-		std::cout << "[DEBUG] " << *iter << ": " << value << std::endl;
+		std::cout << "[DEBUG] " << *iter << ": " << value;
+		std::cout << std::endl;
 	}
 
 	// -----------------------
@@ -135,4 +136,4 @@ void Robot::PreferencesInit() {
 	Preferences::GetInstance();
 }
 
-START_ROBOT_CLASS(Robot);
+START_ROBOT_CLASS (Robot);
